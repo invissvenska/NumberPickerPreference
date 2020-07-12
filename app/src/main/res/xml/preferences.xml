@@ -1,0 +1,42 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:title="root_title">
+
+    <PreferenceCategory
+        android:title="Alert"
+        app:iconSpaceReserved="false">
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="vibration"
+            android:summary="Enable vibration when alert"
+            android:title="Vibration"
+            app:iconSpaceReserved="false" />
+
+        <nl.invissvenska.numberpickerpreference.NumberDialogPreference
+            android:key="alert_before"
+            android:title="Alert before the boss spawns"
+            app:iconSpaceReserved="false"
+            app:numberPickerPreference_maxValue="30"
+            app:numberPickerPreference_minValue="0"
+            app:numberPickerPreference_unitText=" minutes" />
+
+        <nl.invissvenska.numberpickerpreference.NumberDialogPreference
+            android:key="number_of_alerts"
+            android:title="Number of alerts"
+            app:iconSpaceReserved="false"
+            app:numberPickerPreference_maxValue="5"
+            app:numberPickerPreference_minValue="0"
+            app:numberPickerPreference_unitText=" times" />
+
+        <nl.invissvenska.numberpickerpreference.NumberDialogPreference
+            android:key="alert_delay"
+            android:title="Time between alerts"
+            app:iconSpaceReserved="false"
+            app:numberPickerPreference_maxValue="60"
+            app:numberPickerPreference_minValue="0"
+            app:numberPickerPreference_unitText=" seconds" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

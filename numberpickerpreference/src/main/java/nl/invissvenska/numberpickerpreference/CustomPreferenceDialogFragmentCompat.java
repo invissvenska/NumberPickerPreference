@@ -1,4 +1,4 @@
-package nl.invissvenska.modalbottomsheetdialog;
+package nl.invissvenska.numberpickerpreference;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;

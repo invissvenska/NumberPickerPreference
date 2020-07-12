@@ -1,4 +1,4 @@
-package nl.invissvenska.modalbottomsheetdialog;
+package nl.invissvenska.numberpickerpreference;
 
 import android.os.Bundle;
 import android.view.View;
