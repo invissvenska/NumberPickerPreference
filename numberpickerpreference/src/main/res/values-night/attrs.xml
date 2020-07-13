@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="numberPickerPreference">
+        <attr name="numberPickerPreference_minValue" format="integer"/>
+        <attr name="numberPickerPreference_maxValue" format="integer"/>
+        <attr name="numberPickerPreference_unitText" format="string|reference"/>
+    </declare-styleable>
+</resources>
