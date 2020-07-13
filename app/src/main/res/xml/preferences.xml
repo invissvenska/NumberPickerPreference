@@ -3,39 +3,57 @@
     android:title="root_title">
 
     <PreferenceCategory
-        android:title="Alert"
+        android:title="IconSpaceReserved"
+        app:iconSpaceReserved="true">
+
+        <nl.invissvenska.numberpickerpreference.NumberDialogPreference
+            android:key="demo_1"
+            android:title="Default value and min value set"
+            app:defaultValue="20"
+            app:numberPickerPreference_minValue="0" />
+
+        <nl.invissvenska.numberpickerpreference.NumberDialogPreference
+            android:key="demo_2"
+            android:title="Min, max and unittext set"
+            app:numberPickerPreference_maxValue="5"
+            app:numberPickerPreference_minValue="0"
+            app:numberPickerPreference_unitText=" quantity" />
+
+        <nl.invissvenska.numberpickerpreference.NumberDialogPreference
+            android:key="demo_3"
+            android:title="Different values"
+            app:numberPickerPreference_maxValue="60"
+            app:numberPickerPreference_minValue="10"
+            app:numberPickerPreference_unitText=" another quantity" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="NumberPicker"
         app:iconSpaceReserved="false">
 
-        <SwitchPreference
-            android:defaultValue="false"
-            android:key="vibration"
-            android:summary="Enable vibration when alert"
-            android:title="Vibration"
-            app:iconSpaceReserved="false" />
-
         <nl.invissvenska.numberpickerpreference.NumberDialogPreference
-            android:key="alert_before"
-            android:title="Alert before the boss spawns"
+            android:key="demo_4"
+            android:title="Default value and min value set"
+            app:defaultValue="20"
             app:iconSpaceReserved="false"
-            app:numberPickerPreference_maxValue="30"
-            app:numberPickerPreference_minValue="0"
-            app:numberPickerPreference_unitText=" minutes" />
+            app:numberPickerPreference_minValue="0" />
 
         <nl.invissvenska.numberpickerpreference.NumberDialogPreference
-            android:key="number_of_alerts"
-            android:title="Number of alerts"
+            android:key="demo_5"
+            android:title="Min, max and unittext set"
             app:iconSpaceReserved="false"
             app:numberPickerPreference_maxValue="5"
             app:numberPickerPreference_minValue="0"
-            app:numberPickerPreference_unitText=" times" />
+            app:numberPickerPreference_unitText=" quantity" />
 
         <nl.invissvenska.numberpickerpreference.NumberDialogPreference
-            android:key="alert_delay"
-            android:title="Time between alerts"
+            android:key="demo_6"
+            android:title="Different values"
             app:iconSpaceReserved="false"
             app:numberPickerPreference_maxValue="60"
-            app:numberPickerPreference_minValue="0"
-            app:numberPickerPreference_unitText=" seconds" />
+            app:numberPickerPreference_minValue="10"
+            app:numberPickerPreference_unitText=" another quantity" />
 
     </PreferenceCategory>
 

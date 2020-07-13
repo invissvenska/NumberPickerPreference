@@ -30,18 +30,15 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
     @Override
     public void onDisplayPreferenceDialog(Preference preference) {
-        DialogFragment dialogFragment = null;
         if (preference instanceof NumberDialogPreference) {
             NumberDialogPreference dialogPreference = (NumberDialogPreference) preference;
-            dialogFragment = NumberPickerPreferenceDialogFragment
+            DialogFragment dialogFragment = NumberPickerPreferenceDialogFragment
                     .newInstance(
                             dialogPreference.getKey(),
                             dialogPreference.getMinValue(),
                             dialogPreference.getMaxValue(),
                             dialogPreference.getUnitText()
                     );
-        }
-        if (dialogFragment != null) {
             dialogFragment.setTargetFragment(this, 0);
             dialogFragment.show(getParentFragmentManager(), DIALOG_FRAGMENT_TAG);
         } else {

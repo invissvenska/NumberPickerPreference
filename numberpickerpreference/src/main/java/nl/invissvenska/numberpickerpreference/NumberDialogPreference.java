@@ -8,8 +8,6 @@ import android.util.AttributeSet;
 import androidx.annotation.NonNull;
 import androidx.preference.DialogPreference;
 
-import nl.invissvenska.numberpickerpreference.R;
-
 
 public class NumberDialogPreference extends DialogPreference {
 
@@ -95,6 +93,8 @@ public class NumberDialogPreference extends DialogPreference {
     protected void onSetInitialValue(Object defaultValue) {
         if (defaultValue == null) {
             setSerializedValue(getPersistedInt(DEFAULT_VALUE));
+        } else if (defaultValue instanceof String) {
+            setSerializedValue(Integer.valueOf((String)defaultValue));
         } else {
             setSerializedValue((Integer) defaultValue);
         }

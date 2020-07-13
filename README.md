@@ -27,107 +27,61 @@ dependencies {
 
 ## Configuration
 
-Implement the ModalBottomSheetDialog Listener interface on your Activity or Fragment:
+Add the NumberDialogPreference to the preferences.xml:
 
+```xml
+<nl.invissvenska.numberpickerpreference.NumberDialogPreference
+    android:key="preference_key"
+    android:title="Preference title"
+    app:defaultValue="20" // optional, default is 0
+    app:numberPickerPreference_minValue="10" // optional, default is 0
+    app:numberPickerPreference_maxValue="60" // optional, default is 100
+    app:numberPickerPreference_unitText=" another quantity" /> // optional, default is ""
+```
+
+Override the OnDisplayPreferenceDialog method in your fragment which extends the PreferenceFragmentCompat class:
 ```java
-public class MainActivity extends AppCompatActivity implements ModalBottomSheetDialog.Listener {
+public class SettingsFragment extends PreferenceFragmentCompat {
+
+    private static final String DIALOG_FRAGMENT_TAG = "CustomPreferenceDialog";
     
     // some other code
 
     @Override
-    public void onItemSelected(String tag, Item item) {
-        Toast.makeText(getApplicationContext(), "Tag: " + tag + ", clicked on: " + item.getTitle(), 
-            Toast.LENGTH_SHORT).show();
+    public void onDisplayPreferenceDialog(Preference preference) {
+        if (preference instanceof NumberDialogPreference) {
+            NumberDialogPreference dialogPreference = (NumberDialogPreference) preference;
+            DialogFragment dialogFragment = NumberPickerPreferenceDialogFragment
+                    .newInstance(
+                            dialogPreference.getKey(),
+                            dialogPreference.getMinValue(),
+                            dialogPreference.getMaxValue(),
+                            dialogPreference.getUnitText()
+                    );
+            dialogFragment.setTargetFragment(this, 0);
+            dialogFragment.show(getParentFragmentManager(), DIALOG_FRAGMENT_TAG);
+        } else {
+            super.onDisplayPreferenceDialog(preference);
+        }
     }
 }
 ```
 
-```java
-new ModalBottomSheetDialog.Builder()
-    .setHeader(String title) // optional
-    .setHeaderLayout(@LayoutRes int layoutResource) // optional (TextView must have id 'header' in layout)
-    .add(@MenuRes int menuResource) // can be used more then once
-    .setItemLayout(@LayoutRes int layoutResource) // optional (TextView with id 'title' or ImageView with id 'icon' must be defined in layout)
-    .setColumns(int columns) // optional (default is 1)
-    .setRoundedModal(boolean roundedModal) // optional (default is false)
-    .show(FragmentManager fragmentManager, String tag);
-```
-
-Extend you theme with on of the DayNight variants to support a dark styled ModalBottomSheetDialog. For example `styles.xml`:
-```xml
-<resources>
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
-
-    <!-- other style declarations -->
-
-</resources>
-```
-
 ## Usage
 
-To create a ModalBottomSheetDialog and display it later in code:
-``` java
-ModalBottomSheetDialog dialog = new ModalBottomSheetDialog.Builder()
-    .setHeader("Title of modal")
-    .add(R.menu.options)
-    .build();
-// some other code in between
-dialog.show(getSupportFragmentManager(), "WithHeader");
-```
-
-To display a ModalBottomSheetDialog directly:
-``` java
-new ModalBottomSheetDialog.Builder()
-    .setHeader("Title of modal")
-    .add(R.menu.options)
-    .show(getSupportFragmentManager(), "WithHeader");
-```
-
-To display a ModalBottomSheetDialog with items from multiple menu resources:
-``` java
-new ModalBottomSheetDialog.Builder()
-    .add(R.menu.options)
-    .add(R.menu.options)
-    .show(getSupportFragmentManager(), "WithoutHeader");
-```
-
-To display a ModalBottomSheetDialog in a grid layout:
-``` java
-new ModalBottomSheetDialog.Builder()
-    .setHeader("Grid bottom layout")
-    .add(R.menu.lot_of_options)
-    .setColumns(3)
-    .show(getSupportFragmentManager(), "Grid Layout");
-```
-
-To display a ModalBottomSheetDialog with custom layout:
-``` java
-new ModalBottomSheetDialog.Builder()
-    .setHeader("Custom title and item layouts")
-    .setHeaderLayout(R.layout.alternate_bottom_sheet_fragment_header)
-    .add(R.menu.lot_of_options)
-    .setItemLayout(R.layout.alternate_bottom_sheet_fragment_item)
-    .setColumns(3)
-    .show(getSupportFragmentManager(), "Custom Layout");
-```
-
-To display a ModalBottomSheetDialog with rounded corners:
-``` java
-new ModalBottomSheetDialog.Builder()
-    .setHeader("Rounded bottom layout")
-    .add(R.menu.lot_of_options)
-    .setRoundedModal(true)
-    .show(getSupportFragmentManager(), "Rounded Layout");
+To create a NumberPickerPreference with default value of 20, min value of 10, max value of 60 and custom unit text:
+```xml
+<nl.invissvenska.numberpickerpreference.NumberDialogPreference
+    android:key="preference_key"
+    android:title="Preference title"
+    app:defaultValue="20"
+    app:numberPickerPreference_minValue="10"
+    app:numberPickerPreference_maxValue="60"
+    app:numberPickerPreference_unitText=" another quantity" />
 ```
 
 ## Screenshots
 
 **Please click the image below to enlarge.**
 
-<img src="https://raw.githubusercontent.com/invissvenska/ModalBottomSheetDialog/master/media/collage.png">
+<img src="https://raw.githubusercontent.com/invissvenska/NumberPickerPreference/master/media/collage.png">
