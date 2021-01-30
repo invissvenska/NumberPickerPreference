@@ -37,6 +37,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                             dialogPreference.getKey(),
                             dialogPreference.getMinValue(),
                             dialogPreference.getMaxValue(),
+                            dialogPreference.getStepValue(),
                             dialogPreference.getUnitText()
                     );
             dialogFragment.setTargetFragment(this, 0);
