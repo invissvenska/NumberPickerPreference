@@ -1,5 +1,8 @@
 # NumberPickerPreference
-[![API](https://img.shields.io/badge/API-19%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=19) [![](https://jitpack.io/v/invissvenska/NumberPickerPreference.svg)](https://jitpack.io/#invissvenska/NumberPickerPreference)  
+[![API](https://img.shields.io/badge/API-19%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=19) 
+[![](https://jitpack.io/v/invissvenska/NumberPickerPreference.svg)](https://jitpack.io/#invissvenska/NumberPickerPreference)  
+<a href="https://github.com/invissvenska/NumberPickerPreference/actions"><img alt="Build Status" src="https://github.com/invissvenska/NumberPickerPreference/workflows/Android-Library%20CI/badge.svg"/></a> 
+<span class="badge-buymeacoffee"><a href="https://www.paypal.com/paypalme/svenvandentweel/3" title="Donate to this project using Buy Me A Coffee"><img src="https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg" alt="Buy Me A Coffee donate button" /></a></span> 
 
 ## Prerequisites
 
@@ -36,6 +39,7 @@ Add the NumberDialogPreference to the preferences.xml:
     app:defaultValue="20" // optional, default is 0
     app:numberPickerPreference_minValue="10" // optional, default is 0
     app:numberPickerPreference_maxValue="60" // optional, default is 100
+    app:numberPickerPreference_stepValue="1" // optional, default is 1
     app:numberPickerPreference_unitText=" another quantity" /> // optional, default is ""
 ```
 
@@ -56,6 +60,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                             dialogPreference.getKey(),
                             dialogPreference.getMinValue(),
                             dialogPreference.getMaxValue(),
+                            dialogPreference.getStepValue(),
                             dialogPreference.getUnitText()
                     );
             dialogFragment.setTargetFragment(this, 0);
@@ -69,7 +74,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
 ## Usage
 
-To create a NumberPickerPreference with default value of 20, min value of 10, max value of 60 and custom unit text:
+To create a NumberPickerPreference with default value of 20, min value of 10, max value of 60, increments of 2 and custom unit text:
 ```xml
 <nl.invissvenska.numberpickerpreference.NumberDialogPreference
     android:key="preference_key"
@@ -77,6 +82,7 @@ To create a NumberPickerPreference with default value of 20, min value of 10, ma
     app:defaultValue="20"
     app:numberPickerPreference_minValue="10"
     app:numberPickerPreference_maxValue="60"
+    app:numberPickerPreference_stepValue="2"
     app:numberPickerPreference_unitText=" another quantity" />
 ```
 

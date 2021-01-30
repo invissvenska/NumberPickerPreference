@@ -23,6 +23,7 @@ public class MainFragment extends Fragment {
     private TextView demo4;
     private TextView demo5;
     private TextView demo6;
+    private TextView demo7;
 
     public MainFragment() {
         //keep default constructor
@@ -55,6 +56,7 @@ public class MainFragment extends Fragment {
         demo4 = view.findViewById(R.id.demo4);
         demo5 = view.findViewById(R.id.demo5);
         demo6 = view.findViewById(R.id.demo6);
+        demo7 = view.findViewById(R.id.demo7);
 
         preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         return view;
@@ -69,5 +71,6 @@ public class MainFragment extends Fragment {
         demo4.setText("Demo_4 value is: " + preferences.getInt("demo_4", 20));
         demo5.setText("Demo_5 value is: " + preferences.getInt("demo_5", 0));
         demo6.setText("Demo_6 value is: " + preferences.getInt("demo_6", 0));
+        demo6.setText("Demo_7 value is: " + preferences.getInt("demo_7", 10));
     }
 }

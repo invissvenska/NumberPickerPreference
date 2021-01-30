@@ -14,6 +14,7 @@ public class NumberDialogPreference extends DialogPreference {
     private static final Integer DEFAULT_VALUE = 0;
     private Integer minValue = 0;
     private Integer maxValue = 100;
+    private Integer stepValue = 1;
     private String unitText = "";
     private Integer value;
 
@@ -23,6 +24,7 @@ public class NumberDialogPreference extends DialogPreference {
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.numberPickerPreference, 0, 0);
         minValue = ta.getInt(R.styleable.numberPickerPreference_numberPickerPreference_minValue, minValue);
         maxValue = ta.getInt(R.styleable.numberPickerPreference_numberPickerPreference_maxValue, maxValue);
+        stepValue = ta.getInt(R.styleable.numberPickerPreference_numberPickerPreference_stepValue, stepValue);
         if (ta.getString(R.styleable.numberPickerPreference_numberPickerPreference_unitText) != null) {
             unitText = ta.getString(R.styleable.numberPickerPreference_numberPickerPreference_unitText);
         }
@@ -60,6 +62,10 @@ public class NumberDialogPreference extends DialogPreference {
         return maxValue;
     }
 
+    public Integer getStepValue() {
+        return stepValue;
+    }
+
     public String getUnitText() {
         return unitText;
     }
@@ -94,7 +100,7 @@ public class NumberDialogPreference extends DialogPreference {
         if (defaultValue == null) {
             setSerializedValue(getPersistedInt(DEFAULT_VALUE));
         } else if (defaultValue instanceof String) {
-            setSerializedValue(Integer.valueOf((String)defaultValue));
+            setSerializedValue(Integer.valueOf((String) defaultValue));
         } else {
             setSerializedValue((Integer) defaultValue);
         }

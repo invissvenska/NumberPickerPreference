@@ -22,6 +22,7 @@
         <nl.invissvenska.numberpickerpreference.NumberDialogPreference
             android:key="demo_3"
             android:title="Different values"
+            app:defaultValue="10"
             app:numberPickerPreference_maxValue="60"
             app:numberPickerPreference_minValue="10"
             app:numberPickerPreference_unitText=" another quantity" />
@@ -50,9 +51,20 @@
         <nl.invissvenska.numberpickerpreference.NumberDialogPreference
             android:key="demo_6"
             android:title="Different values"
+            app:defaultValue="10"
             app:iconSpaceReserved="false"
             app:numberPickerPreference_maxValue="60"
             app:numberPickerPreference_minValue="10"
+            app:numberPickerPreference_unitText=" another quantity" />
+
+        <nl.invissvenska.numberpickerpreference.NumberDialogPreference
+            android:key="demo_7"
+            android:title="Step value"
+            app:defaultValue="10"
+            app:iconSpaceReserved="false"
+            app:numberPickerPreference_maxValue="160"
+            app:numberPickerPreference_minValue="10"
+            app:numberPickerPreference_stepValue="5"
             app:numberPickerPreference_unitText=" another quantity" />
 
     </PreferenceCategory>
