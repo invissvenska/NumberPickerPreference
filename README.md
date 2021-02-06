@@ -27,18 +27,18 @@ dependencies {
 
 ## Configuration
 
-Add the NumberDialogPreference to the preferences.xml:
+Add the NumberDialogPreference to the `preferences.xml`:
 
 ```xml
 <nl.invissvenska.numberpickerpreference.NumberDialogPreference
     android:key="preference_key"
     android:title="Preference title"
-    app:defaultValue="20" // optional, default is 0
-    app:numberPickerPreference_minValue="10" // optional, default is 0
-    app:numberPickerPreference_maxValue="60" // optional, default is 100
-    app:numberPickerPreference_stepValue="1" // optional, default is 1
-    app:numberPickerPreference_unitText=" another quantity" /> // optional, default is ""
+    app:numberPickerPreference_minValue="10"
+    app:numberPickerPreference_maxValue="60"
+    app:numberPickerPreference_unitText=" another quantity" /> 
 ```
+
+## Usage
 
 Override the OnDisplayPreferenceDialog method in your fragment which extends the PreferenceFragmentCompat class:
 ```java
@@ -69,8 +69,6 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 }
 ```
 
-## Usage
-
 To create a NumberPickerPreference with default value of 20, min value of 10, max value of 60, increments of 2 and custom unit text:
 ```xml
 <nl.invissvenska.numberpickerpreference.NumberDialogPreference
@@ -82,6 +80,15 @@ To create a NumberPickerPreference with default value of 20, min value of 10, ma
     app:numberPickerPreference_stepValue="2"
     app:numberPickerPreference_unitText=" another quantity" />
 ```
+
+## NumberDialogPreference Attributes
+Attributes | Type | Default | Mandatory | Description
+--- | --- | --- | --- | ---
+defaultValue | Integer | 0 | No | Sets the default value of the preference.
+numberPickerPreference_minValue | Integer | 0 | No | Minimum value to select from preference.
+numberPickerPreference_maxValue | Integer | 100 | No | Maximum value to select from preference.
+numberPickerPreference_stepValue | Integer | 1 | No | Stepper value, minimum value should be 1.
+numberPickerPreference_unitText | String | none | No | Suffix value, can be used to indicate the unit which will be selected.
 
 ## Screenshots
 
