@@ -27,7 +27,7 @@ public class NumberPickerPreferenceDialogFragment extends CustomPreferenceDialog
             @Nullable final String unitText
     ) {
         final NumberPickerPreferenceDialogFragment fragment = new NumberPickerPreferenceDialogFragment();
-        final Bundle b = new Bundle(4);
+        final Bundle b = new Bundle(5);
         b.putString(ARG_KEY, key);
         b.putInt(ARG_MIN_VALUE, minValue);
         b.putInt(ARG_MAX_VALUE, maxValue);
